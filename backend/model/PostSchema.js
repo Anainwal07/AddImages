@@ -1,16 +1,23 @@
-import mongoose, { Schema, model } from "mongoose";
+import { Schema , model} from "mongoose";
 
-const postschema = new Schema({
-    description : {
-        type : String,
-        required : true
-    }, 
-    image : {
-        type : String,
-        required : true 
-    },
-}) ;
+const imageSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String
+  },
+  imageUrl: {
+    type: String,
+    required: true
+  },
+  uploadDate: {
+    type: Date,
+    default: Date.now
+  }
+});
 
-const Post = model("Post" , postschema) ; 
+const Image = model('Image', imageSchema);
 
-export default Post ; 
+export default Image ; 
